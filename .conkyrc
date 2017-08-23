@@ -23,9 +23,6 @@ double_buffer yes
 no_buffers yes
 text_buffer_size 3072
 border_width 1
-default_color FFD700
-default_outline_color FFD700
-default_shade_color D4AF37
 draw_borders no
 stippled_borders 10
 draw_graph_borders yes
@@ -54,7 +51,7 @@ show_graph_range no
 # Размеры
 gap_x 20
 gap_y 20
-minimum_size 500 900
+minimum_size 600 900
 # ----------------------------------------------------------------------
 # ======================================================================
 
@@ -64,40 +61,57 @@ minimum_size 500 900
 # ======================================================================
 #lua_load ~/.conky-bargraph.lua
 #lua_draw_hook_pre conky_main
-# ======================================================================
+# ===========================================================
 
+# ===========================================================
+# цвета
+# ===========================================================
+color0 D4AF37
+default_color FFD700
+default_outline_color FFD700
+default_shade_color D4AF37
 
-# ======================================================================
+# ============================================================
+# Шаблоны
+# ============================================================
+template0 ${color0}${font Serif:size=24}\1${font}${color}
+template1 ${color0}\1:${color} \2
+template2 ${color0}\1:${color} \2\n\3
+template3 ${color0}Ядро \1:${color} ${cpu cpu\1}%\n${cpubar cpu\1}
+template4 ${color0}/dev/\1:${color} ${hddtemp /dev/\1}°C
+template5 ${color0}\1:${color} ${fs_used \1} / ${fs_size \1} - ${fs_used_perc \1}%\n${fs_bar \1}
+# ============================================================
 # Место вывода информации
-# ======================================================================
+# ===========================================================
 TEXT
 $stippled_hr
-${font Serif:size=32}About System${font}
+${template0 Загрузка\ системы}
 $stippled_hr
-Series    $sysname
-Model     $machine
-Version   $kernel
+# ${template1 Система $sysname}
+# ${template1 Архитектура $machine}
+${template1 Ядро $kernel}
 $stippled_hr
-CHIP   ${exec uname -p}
-CORE  ${goto 70}RATIO  ${goto 200}TEMPERATURE  ${goto 420}ATTACK
- A1  ${execi 2 cat /proc/cpuinfo| grep MHz | cut -c12- | sed -n 1p | sed s/.000//} MHz ${goto 230}${execi 2 sensors | grep 'temp2' | cut -c 15-22} ${goto 440}${cpu cpu1}%
- A2  ${execi 2 cat /proc/cpuinfo| grep MHz | cut -c12- | sed -n 2p | sed s/.000//} MHz ${goto 220}FAN SPEED ${goto 440}${cpu cpu2}%
- A3  ${execi 2 cat /proc/cpuinfo| grep MHz | cut -c12- | sed -n 3p | sed s/.000//} MHz ${goto 230}${execi 2 sensors | grep 'fan2' | cut -c 14-22}${goto 440}${cpu cpu3}%
- A4  ${execi 2 cat /proc/cpuinfo| grep MHz | cut -c12- | sed -n 4p | sed s/.000//} MHz ${goto 440}${cpu cpu4}%
- A5  ${execi 2 cat /proc/cpuinfo| grep MHz | cut -c12- | sed -n 5p | sed s/.000//} MHz ${goto 440}${cpu cpu5}%
- A6  ${execi 2 cat /proc/cpuinfo| grep MHz | cut -c12- | sed -n 6p | sed s/.000//} MHz ${goto 440}${cpu cpu6}%
+${template1 Процессор ${exec\ uname\ -p}}
+${template1 Температура ${execi\ 2\ sensors|grep\ 'temp2'|cut\ -c\ 15-22}}
+${template1 Обороты ${execi\ 2\ sensors|grep\ 'fan2'|cut\ -c\ 14-22}}
+${template3 1}
+${template3 2}
+${template3 3}
+${template3 4}
+${template3 5}
+${template3 6}
 $stippled_hr
-RAM Usage: $membar
-$mem/$memmax - $memperc%
-Swap Usage: $swap/$swapmax - $swapperc% ${swapbar}
-Processes: $processes  Running: $running_processes
+${template2 Память $mem/$memmax\ -\ $memperc% $membar}
+${template2 Подкачка $swap/$swapmax\ -\ $swapperc% $swapbar}
+#${template1 Процессов $processes}
+#${template1 Потоков $threads}
 $stippled_hr
-/dev/sda: ${hddtemp /dev/sda}°C
-/: ${fs_used /}/${fs_size /} ${fs_bar /}
+${template4 sda} 
+${template5 /}
 $stippled_hr
-/dev/sdb: ${hddtemp /dev/sdb}°C
-/home: ${fs_used /home}/${fs_size /home} ${fs_bar /home}
+${template4 sdb}
+${template5 /home}
 $stippled_hr
-/dev/sdc: ${hddtemp /dev/sdc}°C
-/mnt/alex: ${fs_used /mnt/alex}/${fs_size /mnt/alex} ${fs_bar /mnt/alex}
+${template4 sdc}
+${template5 /mnt/alex}
 $stippled_hr
