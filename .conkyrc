@@ -66,9 +66,9 @@ minimum_size 600 900
 # ===========================================================
 # цвета
 # ===========================================================
-color0 FF1493
-default_color CC0605
-default_outline_color CC0605
+color0 1560BD
+default_color 00008B
+default_outline_color 00008B
 default_shade_color black
 
 # ============================================================
