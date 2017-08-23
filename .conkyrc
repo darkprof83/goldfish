@@ -66,10 +66,10 @@ minimum_size 600 900
 # ===========================================================
 # цвета
 # ===========================================================
-color0 D4AF37
-default_color FFD700
-default_outline_color FFD700
-default_shade_color D4AF37
+color0 FF1493
+default_color CC0605
+default_outline_color CC0605
+default_shade_color black
 
 # ============================================================
 # Шаблоны
