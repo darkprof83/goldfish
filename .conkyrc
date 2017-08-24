@@ -79,18 +79,19 @@ template1 ${color0}${font Serif:bold}\1:${font}${color} \2
 template2 ${color0}${font Serif:bold}\1:${font}${color} \2\n\3
 template3 ${color0}${font Serif:bold}Ядро \1:${font}${color} ${cpu cpu\1}%\n${cpubar cpu\1}
 template4 ${color0}${font Serif:bold}/dev/\1:${font}${color} ${hddtemp /dev/\1}°C
+template6 ${hr 2}
 template5 ${color0}${font Serif:bold}\1:${font}${color} ${fs_used \1} / ${fs_size \1} - ${fs_used_perc \1}%\n${fs_bar \1}
 # ============================================================
 # Место вывода информации
 # ===========================================================
 TEXT
-$stippled_hr
+$template6
 ${template0 Загрузка\ системы}
-$stippled_hr
+$template6
 # ${template1 Система $sysname}
 # ${template1 Архитектура $machine}
 ${template1 Ядро $kernel}
-$stippled_hr
+$template6
 ${template1 Процессор ${exec\ uname\ -p}}
 ${template1 Температура ${execi\ 2\ sensors|grep\ 'temp2'|cut\ -c\ 15-22}}
 ${template1 Обороты ${execi\ 2\ sensors|grep\ 'fan2'|cut\ -c\ 14-22}}
@@ -100,18 +101,18 @@ ${template3 3}
 ${template3 4}
 ${template3 5}
 ${template3 6}
-$stippled_hr
+$template6
 ${template2 Память $mem/$memmax\ -\ $memperc% $membar}
 ${template2 Подкачка $swap/$swapmax\ -\ $swapperc% $swapbar}
 #${template1 Процессов $processes}
 #${template1 Потоков $threads}
-$stippled_hr
+$template6
 ${template4 sda} 
 ${template5 /}
-$stippled_hr
+$template6
 ${template4 sdb}
 ${template5 /home}
-$stippled_hr
+$template6
 ${template4 sdc}
 ${template5 /mnt/alex}
-$stippled_hr
+$template6
