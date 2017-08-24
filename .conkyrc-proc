@@ -64,6 +64,7 @@ ${top_mem name \1} ${goto 240}${top_mem pid \1} ${goto 350}${top_mem cpu \1} ${g
 };
 
 conky.text = [[
+${image ~/.conky/fon.png -p 0,0 -s 600x500}
 $template6
 ${template0 Процессы}
 $template6

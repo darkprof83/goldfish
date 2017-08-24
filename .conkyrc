@@ -66,6 +66,7 @@ ${color0}${font Serif:bold}\1:${font}${color} ${fs_used \1} / ${fs_size \1} - ${
 };
 
 conky.text = [[
+${image ~/.conky/fon.png -p 0,0 -s 600x1000}
 $template6
 ${template0 Загрузка\ системы}
 $template6
