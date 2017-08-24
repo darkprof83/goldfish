@@ -9,7 +9,7 @@
 # ----------------------------------------------------------------------
 # Шрифт
 use_xft yes
-xftfont Serif:size=14
+xftfont Serif:size=12
 # ----------------------------------------------------------------------
 
 # ----------------------------------------------------------------------
@@ -74,13 +74,13 @@ default_shade_color black
 # ============================================================
 # Шаблоны
 # ============================================================
-template0 ${color0}${font Serif:size=24:bold}\1${font}${color}
+template0 ${color0}${font Serif:size=22:bold}\1${font}${color}
 template1 ${color0}${font Serif:bold}\1:${font}${color} \2
 template2 ${color0}${font Serif:bold}\1:${font}${color} \2\n\3
 template3 ${color0}${font Serif:bold}Ядро \1:${font}${color} ${cpu cpu\1}%\n${cpubar cpu\1}
 template4 ${color0}${font Serif:bold}/dev/\1:${font}${color} ${hddtemp /dev/\1}°C
-template6 ${hr 2}
 template5 ${color0}${font Serif:bold}\1:${font}${color} ${fs_used \1} / ${fs_size \1} - ${fs_used_perc \1}%\n${fs_bar \1}
+template6 ${hr 2}
 # ============================================================
 # Место вывода информации
 # ===========================================================
