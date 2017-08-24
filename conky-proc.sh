@@ -8,6 +8,6 @@ if [ -f $flag ]; then
 	done
 	rm $flag
 else
-	conky -p 10 -c ~/.conkyrc-proc &
+	conky -p 3 -c ~/.conkyrc-proc &
 	echo $! > $flag
 fi
