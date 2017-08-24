@@ -45,8 +45,8 @@ conky.config = {
 --lua_load ~/.conky-bargraph.lua
 --lua_draw_hook_pre conky_main
 
-	color0 = '#1560BD',
-	default_color = '#00008B',
+	color0 = '#FFD700',
+	default_color = '#ffffff',
 	default_outline_color = '#00008B',
 	default_shade_color = 'black',
 
@@ -66,7 +66,6 @@ ${color0}${font Serif:bold}\1:${font}${color} ${fs_used \1} / ${fs_size \1} - ${
 };
 
 conky.text = [[
-${image ~/.conky/fon.png -p 0,0 -s 600x1000}
 $template6
 ${template0 Загрузка\ системы}
 $template6

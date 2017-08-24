@@ -45,8 +45,8 @@ conky.config = {
 --lua_load ~/.conky-bargraph.lua
 --lua_draw_hook_pre conky_main
 
-	color0 = '#1560BD',
-	default_color = '#00008B',
+	color0 = '#FFD700',
+	default_color = '#ffffff',
 	default_outline_color = '#00008B',
 	default_shade_color = 'black',
 
@@ -64,7 +64,6 @@ ${top_mem name \1} ${goto 240}${top_mem pid \1} ${goto 350}${top_mem cpu \1} ${g
 };
 
 conky.text = [[
-${image ~/.conky/fon.png -p 0,0 -s 600x500}
 $template6
 ${template0 Процессы}
 $template6
