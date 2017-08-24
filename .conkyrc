@@ -74,7 +74,7 @@ default_shade_color black
 # ============================================================
 # Шаблоны
 # ============================================================
-template0 ${color0}${font Serif:size=24}\1${font}${color}
+template0 ${color0}${font Serif:size=24:bold}\1${font}${color}
 template1 ${color0}\1:${color} \2
 template2 ${color0}\1:${color} \2\n\3
 template3 ${color0}Ядро \1:${color} ${cpu cpu\1}%\n${cpubar cpu\1}
