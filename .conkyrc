@@ -75,11 +75,11 @@ default_shade_color black
 # Шаблоны
 # ============================================================
 template0 ${color0}${font Serif:size=24:bold}\1${font}${color}
-template1 ${color0}\1:${color} \2
-template2 ${color0}\1:${color} \2\n\3
-template3 ${color0}Ядро \1:${color} ${cpu cpu\1}%\n${cpubar cpu\1}
-template4 ${color0}/dev/\1:${color} ${hddtemp /dev/\1}°C
-template5 ${color0}\1:${color} ${fs_used \1} / ${fs_size \1} - ${fs_used_perc \1}%\n${fs_bar \1}
+template1 ${color0}${font Serif:bold}\1:${font}${color} \2
+template2 ${color0}${font Serif:bold}\1:${font}${color} \2\n\3
+template3 ${color0}${font Serif:bold}Ядро \1:${font}${color} ${cpu cpu\1}%\n${cpubar cpu\1}
+template4 ${color0}${font Serif:bold}/dev/\1:${font}${color} ${hddtemp /dev/\1}°C
+template5 ${color0}${font Serif:bold}\1:${font}${color} ${fs_used \1} / ${fs_size \1} - ${fs_used_perc \1}%\n${fs_bar \1}
 # ============================================================
 # Место вывода информации
 # ===========================================================
