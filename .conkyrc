@@ -61,7 +61,7 @@ ${color0}${font Serif:bold}Ядро \1:${font}${color} ${cpu cpu\1}%\n${cpubar c
 	template4 = [[
 ${color0}${font Serif:bold}/dev/\1:${font}${color} ${hddtemp /dev/\1}°C]],
 	template5 = [[
-${color0}${font Serif:bold}\1:${font}${color} ${fs_used \1} / ${fs_size \1} - ${fs_used_perc \1}%\n${fs_bar \1}]],
+${color0}${font Serif:bold}\1:${font}${color} ${fs_used \1} / ${fs_size \1} - ${fs_used_perc \1}% — ${fs_free \1} свободно\n${fs_bar \1}]],
 	template6 = '${hr 2}',
 };
 
