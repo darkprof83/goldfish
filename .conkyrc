@@ -83,8 +83,8 @@ ${template3 4}
 ${template3 5}
 ${template3 6}
 $template6
-${template2 Память $mem/$memmax\ -\ $memperc% $membar}
-${template2 Подкачка $swap/$swapmax\ -\ $swapperc% $swapbar}
+${template2 Память $mem\ /\ $memmax\ -\ $memperc%\ —\ $memeasyfree\ свободно $membar}
+${template2 Подкачка $swap\ /\ $swapmax\ -\ $swapperc%\ —\ $swapfree\ свободно $swapbar}
 #${template1 Процессов $processes}
 #${template1 Потоков $threads}
 $template6
