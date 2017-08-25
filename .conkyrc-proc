@@ -57,9 +57,9 @@ ${color0}${font Serif:bold}\1:${font}${color} \2]],
 	template2 = [[
 ${color0}${font Serif:bold}\1:${font}${color} \2\n\3]],
 	template3 = [[
-${top name \1} ${goto 240}${top pid \1} ${goto 350}${top cpu \1} ${goto 450}${top mem_res \1}]],
+${top name \1} ${goto 340}${top pid \1} ${goto 450}${top cpu \1} ${goto 550}${top mem_res \1}]],
 	template5 = [[
-${top_mem name \1} ${goto 240}${top_mem pid \1} ${goto 350}${top_mem cpu \1} ${goto 450}${top_mem mem_res \1}]],
+${top_mem name \1} ${goto 340}${top_mem pid \1} ${goto 450}${top_mem cpu \1} ${goto 550}${top_mem mem_res \1}]],
 	template6 = '${hr 2}',
 };
 
@@ -67,7 +67,7 @@ conky.text = [[
 $template6
 ${template0 Процессы}
 $template6
-${color0}${font Serif:bold}Имя${goto 240}PID${goto 350}CPU%${goto 450}MEM${font}${color}
+${color0}${font Serif:bold}Имя${goto 340}PID${goto 450}CPU%${goto 550}MEM${font}${color}
 $template6
 ${color0}${font Serif:bold}По загрузке:${font}${color}
 ${template3 1}
