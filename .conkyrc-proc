@@ -82,4 +82,6 @@ ${template5 2}
 ${template5 3}
 ${template5 4}
 ${template5 5}
+$template6
+${template1 Процессов $processes} ${goto 300}${template1 Потоков $threads}
 ]];
