@@ -7,7 +7,7 @@ conky.config = {
 	font = 'Serif:size=12',
 
 	update_interval = 2,
-	alignment = 'bottom_left',
+	alignment = 'top_right',
 --alignment top_left
 --alignment middle_left
 	background = false,
@@ -24,7 +24,7 @@ conky.config = {
 	out_to_stderr = false,
 	extra_newline = true,
 	own_window = true,
-	own_window_class = 'Conky-proc',
+	own_window_class = 'Conky-right',
 --own_window_type desktop
 	own_window_type = 'normal',
 	own_window_argb_visual = true,
@@ -40,7 +40,7 @@ conky.config = {
 
 	gap_x = 20,
 	gap_y = 20,
-	minimum_width = 600, minimum_height = 500,
+	minimum_width = 600, minimum_height = 900,
   
 --lua_load ~/.conky-bargraph.lua
 --lua_draw_hook_pre conky_main
@@ -57,31 +57,44 @@ ${color0}${font Serif:bold}\1:${font}${color} \2]],
 	template2 = [[
 ${color0}${font Serif:bold}\1:${font}${color} \2\n\3]],
 	template3 = [[
-${top name \1} ${goto 340}${top pid \1} ${goto 450}${top cpu \1} ${goto 550}${top mem_res \1}]],
+${color0}${font Serif:bold}Ядро \1:${font}${color} ${cpu cpu\1}%\n${cpubar cpu\1}]],
+	template4 = [[
+${color0}${font Serif:bold}/dev/\1:${font}${color} ${hddtemp /dev/\1}°C]],
 	template5 = [[
-${top_mem name \1} ${goto 340}${top_mem pid \1} ${goto 450}${top_mem cpu \1} ${goto 550}${top_mem mem_res \1}]],
+${color0}${font Serif:bold}\1:${font}${color} ${fs_used \1} / ${fs_size \1} - ${fs_used_perc \1}% — ${fs_free \1} свободно\n${fs_bar \1}]],
 	template6 = '${hr 2}',
 };
 
 conky.text = [[
 $template6
-${template0 Процессы}
+${template0 Загрузка\ системы}
 $template6
-${color0}${font Serif:bold}Имя${goto 340}PID${goto 450}CPU%${goto 550}MEM${font}${color}
+# ${template1 Система $sysname}
+# ${template1 Архитектура $machine}
+${template1 Ядро $kernel}
 $template6
-${color0}${font Serif:bold}По загрузке:${font}${color}
+${template1 Процессор ${exec\ uname\ -p}}
+${template1 Температура ${execi\ 2\ sensors|grep\ 'temp2'|cut\ -c\ 15-22}}
+${template1 Обороты ${execi\ 2\ sensors|grep\ 'fan2'|cut\ -c\ 14-22}}
 ${template3 1}
 ${template3 2}
 ${template3 3}
 ${template3 4}
 ${template3 5}
+${template3 6}
 $template6
-${color0}${font Serif:bold}По памяти:${font}${color}
-${template5 1}
-${template5 2}
-${template5 3}
-${template5 4}
-${template5 5}
+${template2 Память $mem\ /\ $memmax\ -\ $memperc%\ —\ $memeasyfree\ свободно $membar}
+${template2 Подкачка $swap\ /\ $swapmax\ -\ $swapperc%\ —\ $swapfree\ свободно $swapbar}
+#${template1 Процессов $processes}
+#${template1 Потоков $threads}
 $template6
-${template1 Процессов $processes} ${goto 300}${template1 Потоков $threads}
+${template4 sda} 
+${template5 /}
+$template6
+${template4 sdb}
+${template5 /home}
+$template6
+${template4 sdc}
+${template5 /mnt/alex}
+$template6
 ]];
