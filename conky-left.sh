@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-flag="/tmp/flag-conky"
+flag="/tmp/flag-left"
 if [ -f $flag ]; then
 	for p in  `tail $flag`
 	do
@@ -8,6 +8,6 @@ if [ -f $flag ]; then
 	done
 	rm $flag
 else
-	conky -p 10 &
+	conky -p 3 -c ~/.conky/goldfish/.conkyrc-left&
 	echo $! > $flag
 fi
