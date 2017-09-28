@@ -73,7 +73,7 @@ $template6
 # ${template1 Архитектура $machine}
 ${template1 Ядро $kernel}
 $template6
-${template1 Процессор ${exec\ uname\ -p}}
+${template1 Процессор ${exec\ lscpu|grep\ 'Имя\ модели'|cut\ -c\ 31-}}
 ${template1 Температура ${execi\ 2\ sensors|grep\ 'temp2'|cut\ -c\ 15-22}}
 ${template1 Обороты ${execi\ 2\ sensors|grep\ 'fan2'|cut\ -c\ 14-22}}
 ${template3 1}
